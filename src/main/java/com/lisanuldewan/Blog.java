@@ -7,11 +7,11 @@ public class Blog {
     private int id;
     private String title;
     private String content;
-    private SimpleDateFormat publishdate;
+    private String publishdate;
 
     public Blog() {}
 
-    public Blog(int id, String title, String content, SimpleDateFormat publishdate){
+    public Blog(int id, String title, String content, String publishdate){
         this.setId(id);
         this.setTitle(title);
         this.setContent(content);
@@ -39,10 +39,10 @@ public class Blog {
         this.content = content;
     }
 
-    public SimpleDateFormat getPublishdate() {
+    public String getPublishdate() {
         return publishdate;
     }
-    public void setPublishdate(SimpleDateFormat publishdate) {
+    public void setPublishdate(String publishdate) {
         this.publishdate = publishdate;
     }
 
@@ -51,7 +51,7 @@ public class Blog {
         return "Blog{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", publishdate=" + publishdate.toString() +
+                ", publishdate=" + publishdate +
                 ", content='" + content + '\'' +
                 '}';
     }

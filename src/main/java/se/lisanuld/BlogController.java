@@ -44,4 +44,19 @@ public class BlogController {
         return blogMockedData.createBlog(id, title, content, publishDt);
     }
 
+    @PutMapping("/blog/{id}")
+    public Blog update(@PathVariable String id, @RequestBody Map<String, String> body){
+        int blogId = Integer.parseInt(id);
+        String title = body.get("title");
+        String content = body.get("content");
+        String publishDt = body.get("publishdate");
+        return blogMockedData.updateBlog(blogId, title, content, publishDt);
+    }
+
+    @DeleteMapping("/blog/{id}")
+    public boolean delete(@PathVariable String id){
+        int blogId = Integer.parseInt(id);
+        return blogMockedData.delete(blogId);
+    }
+
 }

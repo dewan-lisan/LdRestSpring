@@ -97,11 +97,37 @@ public class BlogMockedData {
     }
 
     //update blog
-    /*public Blog updateBlog(int id, String title, String content, String publishdt){
-        Blog updtBlog = new Blog(id, title, content, publishdt);
-        updtBlog.setId();
-    } */
+    public Blog updateBlog(int id, String title, String content, String publishdt){
+        //Blog updtBlog = new Blog(id, title, content, publishdt);
+        //updtBlog.setId();
+        for(Blog b: blogs){ //the enhanced for loop loops through the list of blogs and updates the blog which matching id!!
+            if(b.getId() == id){
+                int blogIndex = blogs.indexOf(b);
+                b.setTitle(title);
+                b.setContent(content);
+                b.setPublishdate(publishdt);
+                return b;
+            }
+            System.out.println("the id not found ==============");
+        }
+        return null;
+    }
 
-
+    //delete blog by id
+    public boolean delete(int id){
+        int blogIndex = -1;
+        for(Blog b: blogs){
+            if(b.getId() == id){
+                blogIndex = blogs.indexOf(b);
+                System.out.println("blogIndex = " + blogIndex);
+                continue;
+            }
+            System.out.println("blog id doesnt exists!");
+        }
+        if(blogIndex > -1){
+            blogs.remove(blogIndex);
+        }
+        return true;
+    }
 
 }
